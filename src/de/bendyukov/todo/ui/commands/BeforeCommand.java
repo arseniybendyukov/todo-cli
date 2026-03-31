@@ -12,7 +12,7 @@ import java.time.LocalDate;
 /**
  * Command to show tasks before date.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class BeforeCommand extends Command {
@@ -22,7 +22,7 @@ public class BeforeCommand extends Command {
      * Creates before command.
      *
      * @param commandHandler command handler
-     * @param app todo app
+     * @param app            todo app
      */
     public BeforeCommand(CommandHandler commandHandler, TodoApp app) {
         super(commandHandler, app, COMMAND_NAME);

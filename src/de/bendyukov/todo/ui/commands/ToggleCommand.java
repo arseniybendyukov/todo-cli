@@ -11,7 +11,7 @@ import de.bendyukov.todo.ui.InvalidCommandArgumentException;
 /**
  * Command to toggle task status.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class ToggleCommand extends Command {
@@ -22,7 +22,7 @@ public class ToggleCommand extends Command {
      * Creates toggle command.
      *
      * @param commandHandler command handler
-     * @param app todo app
+     * @param app            todo app
      */
     public ToggleCommand(CommandHandler commandHandler, TodoApp app) {
         super(commandHandler, app, COMMAND_NAME);

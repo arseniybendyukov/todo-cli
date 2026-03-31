@@ -15,7 +15,7 @@ import java.util.Set;
 /**
  * Command to show tasks with tag.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class TaggedWithCommand extends Command {
@@ -26,7 +26,7 @@ public class TaggedWithCommand extends Command {
      * Creates tagged with command.
      *
      * @param commandHandler command handler
-     * @param app todo app
+     * @param app            todo app
      */
     public TaggedWithCommand(CommandHandler commandHandler, TodoApp app) {
         super(commandHandler, app, COMMAND_NAME);

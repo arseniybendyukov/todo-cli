@@ -10,7 +10,7 @@ import de.bendyukov.todo.ui.InvalidCommandArgumentException;
 /**
  * Command to search tasks by name.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class ShowSearchTasksCommand extends Command {
@@ -20,7 +20,7 @@ public class ShowSearchTasksCommand extends Command {
      * Creates show search tasks command.
      *
      * @param commandHandler command handler
-     * @param app todo app
+     * @param app            todo app
      */
     public ShowSearchTasksCommand(CommandHandler commandHandler, TodoApp app) {
         super(commandHandler, app, COMMAND_NAME);

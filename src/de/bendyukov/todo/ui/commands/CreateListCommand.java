@@ -10,7 +10,7 @@ import de.bendyukov.todo.ui.InvalidCommandArgumentException;
 /**
  * Command to create new task list.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class CreateListCommand extends Command {
@@ -21,7 +21,7 @@ public class CreateListCommand extends Command {
      * Creates create list command.
      *
      * @param commandHandler command handler
-     * @param app todo app
+     * @param app            todo app
      */
     public CreateListCommand(CommandHandler commandHandler, TodoApp app) {
         super(commandHandler, app, COMMAND_NAME);

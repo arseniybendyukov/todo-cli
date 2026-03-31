@@ -12,7 +12,7 @@ import java.time.LocalDate;
 /**
  * Command to show upcoming tasks.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class UpcomingCommand extends Command {
@@ -23,7 +23,7 @@ public class UpcomingCommand extends Command {
      * Creates upcoming command.
      *
      * @param commandHandler command handler
-     * @param app todo app
+     * @param app            todo app
      */
     public UpcomingCommand(CommandHandler commandHandler, TodoApp app) {
         super(commandHandler, app, COMMAND_NAME);

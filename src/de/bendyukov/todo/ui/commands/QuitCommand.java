@@ -8,7 +8,8 @@ import de.bendyukov.todo.ui.CommandHandler;
 /**
  * Command to quit the application.
  *
- * @author Programmieren-Team
+ * @author Arseniy Bendyukov
+ * @version 1.0
  */
 public class QuitCommand extends Command {
     private static final String COMMAND_NAME = "quit";
@@ -17,7 +18,7 @@ public class QuitCommand extends Command {
      * Creates quit command.
      *
      * @param commandHandler command handler
-     * @param app todo app
+     * @param app            todo app
      */
     public QuitCommand(CommandHandler commandHandler, TodoApp app) {
         super(commandHandler, app, COMMAND_NAME);

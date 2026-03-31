@@ -1,6 +1,7 @@
 package de.bendyukov.todo.logic;
 
 import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
@@ -11,7 +12,7 @@ import java.util.StringJoiner;
 /**
  * Utility for building and displaying task trees.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public final class TaskTreeUtility {
@@ -99,7 +100,7 @@ public final class TaskTreeUtility {
         return PRIORITY_BEFORE + priority.getCode() + PRIORITY_AFTER;
     }
 
-    private static String displayDeadline(LocalDate deadline) {
+    private static String displayDeadline(ChronoLocalDate deadline) {
         return DEADLINE_INDICATOR + Task.formatDate(deadline);
     }
 
@@ -122,9 +123,7 @@ public final class TaskTreeUtility {
             return EMPTY_TREE;
         }
 
-        List<Task> activeTasks = tasks.stream()
-                .filter(task -> !task.getIsDeleted())
-                .toList();
+        List<Task> activeTasks = tasks.stream().filter(task -> !task.getIsDeleted()).toList();
 
         List<Task> roots = new ArrayList<>();
         for (Task task : activeTasks) {
@@ -155,19 +154,10 @@ public final class TaskTreeUtility {
             nodes.add(node);
         }
 
-        nodes.sort(
-            Comparator
-                .comparing(
-                    (TaskTreeNode n) -> {
-                        TaskPriority priority = n.getTask().getPriority();
-                        return priority == null ? Integer.MAX_VALUE : priority.getPriority();
-                    }
-                )
-                .thenComparing(
-                    TaskTreeNode::getTaskAddedAt,
-                    Comparator.nullsLast(Comparator.naturalOrder())
-                )
-        );
+        nodes.sort(Comparator.comparing((TaskTreeNode node) -> {
+            TaskPriority priority = node.getTask().getPriority();
+            return priority == null ? Integer.MAX_VALUE : priority.getPriority();
+        }).thenComparing(TaskTreeNode::getTaskAddedAt, Comparator.nullsLast(Comparator.naturalOrder())));
 
         return nodes;
     }

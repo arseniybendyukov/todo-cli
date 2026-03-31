@@ -2,6 +2,7 @@ package de.bendyukov.todo.logic;
 
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
@@ -10,7 +11,7 @@ import java.util.Objects;
 /**
  * Represents a task with priority, deadline, and parent-child relationships.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class Task extends TaggableEntity {
@@ -32,8 +33,8 @@ public class Task extends TaggableEntity {
     /**
      * Creates a task.
      *
-     * @param id unique task ID
-     * @param name task name
+     * @param id       unique task ID
+     * @param name     task name
      * @param priority task priority
      * @param deadline task deadline
      */
@@ -42,6 +43,36 @@ public class Task extends TaggableEntity {
         this.name = name;
         this.priority = priority;
         this.deadline = deadline;
+    }
+
+    /**
+     * Parses date string to LocalDate.
+     *
+     * @param dateString date string
+     * @return parsed date or null if invalid
+     */
+    public static LocalDate parseDate(String dateString) {
+        if (dateString == null) {
+            return null;
+        }
+        try {
+            return LocalDate.parse(dateString, FORMATTER);
+        } catch (DateTimeParseException exception) {
+            return null;
+        }
+    }
+
+    /**
+     * Formats LocalDate to string.
+     *
+     * @param localDate date to format
+     * @return formatted date string or null
+     */
+    public static String formatDate(ChronoLocalDate localDate) {
+        if (localDate == null) {
+            return null;
+        }
+        return localDate.format(FORMATTER);
     }
 
     /**
@@ -98,10 +129,7 @@ public class Task extends TaggableEntity {
      * @return true if this is direct child
      */
     public boolean isDirectChild(Task parentTask) {
-        if (parent == null || parentTask.equals(this)) {
-            return false;
-        }
-        return parent.equals(parentTask);
+        return parent != null && !parentTask.equals(this) && parent.equals(parentTask);
     }
 
     /**
@@ -123,6 +151,15 @@ public class Task extends TaggableEntity {
     }
 
     /**
+     * Sets task priority.
+     *
+     * @param priority new priority
+     */
+    public void setPriority(TaskPriority priority) {
+        this.priority = priority;
+    }
+
+    /**
      * Gets task name.
      *
      * @return task name
@@ -141,30 +178,21 @@ public class Task extends TaggableEntity {
     }
 
     /**
-     * Gets deleted status.
-     *
-     * @return true if task is deleted
-     */
-    public boolean getIsDeleted() {
-        return isDeleted;
-    }
-
-    /**
-     * Gets parent task.
-     *
-     * @return parent task or null
-     */
-    public Task getParent() {
-        return parent;
-    }
-
-    /**
      * Sets open status.
      *
      * @param isOpen new open status
      */
     public void setIsOpen(boolean isOpen) {
         this.isOpen = isOpen;
+    }
+
+    /**
+     * Gets deleted status.
+     *
+     * @return true if task is deleted
+     */
+    public boolean getIsDeleted() {
+        return isDeleted;
     }
 
     /**
@@ -177,21 +205,12 @@ public class Task extends TaggableEntity {
     }
 
     /**
-     * Sets task deadline.
+     * Gets parent task.
      *
-     * @param deadline new deadline
+     * @return parent task or null
      */
-    public void setDeadline(LocalDate deadline) {
-        this.deadline = deadline;
-    }
-
-    /**
-     * Sets task priority.
-     *
-     * @param priority new priority
-     */
-    public void setPriority(TaskPriority priority) {
-        this.priority = priority;
+    public Task getParent() {
+        return parent;
     }
 
     /**
@@ -248,31 +267,12 @@ public class Task extends TaggableEntity {
     }
 
     /**
-     * Parses date string to LocalDate.
-     * @param dateString date string
-     * @return parsed date or null if invalid
+     * Sets task deadline.
+     *
+     * @param deadline new deadline
      */
-    public static LocalDate parseDate(String dateString) {
-        if (dateString == null) {
-            return null;
-        }
-        try {
-            return LocalDate.parse(dateString, FORMATTER);
-        } catch (DateTimeParseException exception) {
-            return null;
-        }
-    }
-
-    /**
-     * Formats LocalDate to string.
-     * @param localDate date to format
-     * @return formatted date string or null
-     */
-    public static String formatDate(LocalDate localDate) {
-        if (localDate == null) {
-            return null;
-        }
-        return localDate.format(FORMATTER);
+    public void setDeadline(LocalDate deadline) {
+        this.deadline = deadline;
     }
 
     /**

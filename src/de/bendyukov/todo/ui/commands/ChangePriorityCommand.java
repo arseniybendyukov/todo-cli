@@ -11,7 +11,7 @@ import de.bendyukov.todo.ui.InvalidCommandArgumentException;
 /**
  * Command to change task priority.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class ChangePriorityCommand extends Command {
@@ -23,7 +23,7 @@ public class ChangePriorityCommand extends Command {
      * Creates change priority command.
      *
      * @param commandHandler command handler
-     * @param app todo app
+     * @param app            todo app
      */
     public ChangePriorityCommand(CommandHandler commandHandler, TodoApp app) {
         super(commandHandler, app, COMMAND_NAME);

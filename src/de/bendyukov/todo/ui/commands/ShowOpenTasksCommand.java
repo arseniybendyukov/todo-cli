@@ -11,7 +11,7 @@ import de.bendyukov.todo.ui.InvalidCommandArgumentException;
 /**
  * Command to show all open tasks.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class ShowOpenTasksCommand extends Command {
@@ -21,7 +21,7 @@ public class ShowOpenTasksCommand extends Command {
      * Creates show open tasks command.
      *
      * @param commandHandler command handler
-     * @param app todo app
+     * @param app            todo app
      */
     public ShowOpenTasksCommand(CommandHandler commandHandler, TodoApp app) {
         super(commandHandler, app, COMMAND_NAME);

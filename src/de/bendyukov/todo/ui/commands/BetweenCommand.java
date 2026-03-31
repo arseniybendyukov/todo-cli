@@ -12,7 +12,7 @@ import java.time.LocalDate;
 /**
  * Command to show tasks between dates.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class BetweenCommand extends Command {
@@ -22,7 +22,7 @@ public class BetweenCommand extends Command {
      * Creates between command.
      *
      * @param commandHandler command handler
-     * @param app todo app
+     * @param app            todo app
      */
     public BetweenCommand(CommandHandler commandHandler, TodoApp app) {
         super(commandHandler, app, COMMAND_NAME);

@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * Represents a named list containing tasks.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class TaskList extends TaggableEntity {
@@ -16,6 +16,7 @@ public class TaskList extends TaggableEntity {
 
     private final String name;
     private final Set<Task> tasks = new LinkedHashSet<>();
+
 
     /**
      * Creates a task list with the given name.
@@ -29,6 +30,15 @@ public class TaskList extends TaggableEntity {
         }
 
         this.name = name;
+    }
+
+    /**
+     * Gets the name of this list.
+     *
+     * @return name of the list
+     */
+    public String getName() {
+        return name;
     }
 
     /**

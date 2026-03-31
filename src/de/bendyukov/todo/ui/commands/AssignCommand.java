@@ -11,7 +11,7 @@ import de.bendyukov.todo.ui.InvalidCommandArgumentException;
 /**
  * Command to assign task to parent or list.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class AssignCommand extends Command {
@@ -22,7 +22,7 @@ public class AssignCommand extends Command {
      * Creates assign command.
      *
      * @param commandHandler command handler
-     * @param app todo app
+     * @param app            todo app
      */
     public AssignCommand(CommandHandler commandHandler, TodoApp app) {
         super(commandHandler, app, COMMAND_NAME);
@@ -40,7 +40,7 @@ public class AssignCommand extends Command {
         String taskIdOrListName = args.getString();
         requireNoAdditionalArguments(args);
 
-        try  {
+        try {
             long parentTaskId = Long.parseLong(taskIdOrListName);
 
             try {

@@ -11,7 +11,7 @@ import de.bendyukov.todo.ui.InvalidCommandArgumentException;
 /**
  * Command to restore deleted task.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class RestoreCommand extends Command {
@@ -22,7 +22,7 @@ public class RestoreCommand extends Command {
      * Creates restore command.
      *
      * @param commandHandler command handler
-     * @param app todo app
+     * @param app            todo app
      */
     public RestoreCommand(CommandHandler commandHandler, TodoApp app) {
         super(commandHandler, app, COMMAND_NAME);

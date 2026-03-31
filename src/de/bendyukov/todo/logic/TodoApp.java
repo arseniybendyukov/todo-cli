@@ -1,6 +1,7 @@
 package de.bendyukov.todo.logic;
 
 import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -8,12 +9,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
-import java.util.stream.Collectors;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 /**
  * Main application logic for todo management.
- * @author udkcf
+ *
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class TodoApp {
@@ -33,7 +35,8 @@ public class TodoApp {
 
     /**
      * Creates a new task.
-     * @param name task name
+     *
+     * @param name     task name
      * @param priority task priority
      * @param deadline task deadline
      * @return created task
@@ -47,6 +50,7 @@ public class TodoApp {
 
     /**
      * Creates a new task list.
+     *
      * @param name list name
      * @throws TodoAppException if name is invalid or duplicate
      */
@@ -60,7 +64,8 @@ public class TodoApp {
 
     /**
      * Tags a task.
-     * @param taskId ID of task to tag
+     *
+     * @param taskId  ID of task to tag
      * @param tagName tag name
      * @return tagged task
      * @throws TodoAppException if task not found or tag invalid, or the task already has this tag
@@ -77,8 +82,9 @@ public class TodoApp {
 
     /**
      * Tags a list.
+     *
      * @param listName name of list to tag
-     * @param tagName tag name
+     * @param tagName  tag name
      * @throws TodoAppException if list not found or tag invalid, or the list already has this tag
      */
     public void tagList(String listName, String tagName) throws TodoAppException {
@@ -92,7 +98,8 @@ public class TodoApp {
 
     /**
      * Assigns parent task to child task.
-     * @param childTaskId child task ID
+     *
+     * @param childTaskId  child task ID
      * @param parentTaskId parent task ID
      * @throws TodoAppException if tasks not found or cycle detected
      */
@@ -105,7 +112,8 @@ public class TodoApp {
 
     /**
      * Assigns task to list.
-     * @param taskId task ID
+     *
+     * @param taskId   task ID
      * @param listName list name
      * @throws TodoAppException if task or list not found or task is already in the list
      */
@@ -123,6 +131,7 @@ public class TodoApp {
 
     /**
      * Toggles task status and all children.
+     *
      * @param taskId task ID
      * @return count of children toggled
      * @throws TodoAppException if task not found
@@ -143,7 +152,8 @@ public class TodoApp {
 
     /**
      * Changes task priority.
-     * @param task task to modify
+     *
+     * @param task     task to modify
      * @param priority new priority
      */
     public void changePriority(Task task, TaskPriority priority) {
@@ -152,6 +162,7 @@ public class TodoApp {
 
     /**
      * Deletes task and all children.
+     *
      * @param task task to delete
      * @return count of children deleted
      * @throws TodoAppException if already deleted
@@ -173,6 +184,7 @@ public class TodoApp {
 
     /**
      * Restores deleted task and all children.
+     *
      * @param task task to restore
      * @return count of children restored
      * @throws TodoAppException if task not deleted
@@ -200,6 +212,7 @@ public class TodoApp {
 
     /**
      * Gets task by ID.
+     *
      * @param id task ID
      * @return task
      * @throws TodoAppException if task not found
@@ -213,6 +226,7 @@ public class TodoApp {
 
     /**
      * Gets active (non-deleted) task by ID.
+     *
      * @param id task ID
      * @return task
      * @throws TodoAppException if task not found or deleted
@@ -227,6 +241,7 @@ public class TodoApp {
 
     /**
      * Gets all open tasks with their parents.
+     *
      * @return set of open tasks
      */
     public Set<Task> getOpenTasks() {
@@ -240,6 +255,7 @@ public class TodoApp {
 
     /**
      * Gets all tasks in list including children.
+     *
      * @param list task list
      * @return set of tasks
      */
@@ -250,6 +266,7 @@ public class TodoApp {
 
     /**
      * Gets all tasks with tag including children.
+     *
      * @param tag tag to search for
      * @return set of tagged tasks
      * @throws TodoAppException if no tasks found
@@ -261,6 +278,7 @@ public class TodoApp {
 
     /**
      * Searches tasks by name substring including children.
+     *
      * @param query search query
      * @return set of matching tasks
      */
@@ -271,7 +289,8 @@ public class TodoApp {
 
     /**
      * Gets tasks with deadlines in upcoming days.
-     * @param date start date
+     *
+     * @param date      start date
      * @param daysDelta days forward
      * @return set of upcoming tasks
      */
@@ -281,43 +300,36 @@ public class TodoApp {
 
     /**
      * Gets tasks with deadlines before given date.
+     *
      * @param date end date
      * @return set of tasks before date
      */
-    public Set<Task> getBeforeTasks(LocalDate date) {
-        Set<Task> foundTasks = tasks.values().stream()
-            .filter(task -> {
-                LocalDate deadline = task.getDeadline();
-                if (deadline == null) {
-                    return false;
-                }
-                return !deadline.isAfter(date);
-            })
-            .collect(Collectors.toSet());
+    public Set<Task> getBeforeTasks(ChronoLocalDate date) {
+        Set<Task> foundTasks = tasks.values().stream().filter(task -> {
+            LocalDate deadline = task.getDeadline();
+            return deadline != null && !deadline.isAfter(date);
+        }).collect(Collectors.toSet());
         return enrichWithChildren(foundTasks);
     }
 
     /**
      * Gets tasks with deadlines in date range.
+     *
      * @param startDate start date (inclusive)
-     * @param endDate end date (inclusive)
+     * @param endDate   end date (inclusive)
      * @return set of tasks in range
      */
-    public Set<Task> getTasksBetweenDates(LocalDate startDate, LocalDate endDate) {
-        Set<Task> foundTasks = tasks.values().stream()
-            .filter(task -> {
-                LocalDate deadline = task.getDeadline();
-                if (deadline == null) {
-                    return false;
-                }
-                return !deadline.isBefore(startDate) && !deadline.isAfter(endDate);
-            })
-            .collect(Collectors.toSet());
+    public Set<Task> getTasksBetweenDates(ChronoLocalDate startDate, ChronoLocalDate endDate) {
+        Set<Task> foundTasks = tasks.values().stream().filter(task -> {
+            LocalDate deadline = task.getDeadline();
+            return deadline != null && !deadline.isBefore(startDate) && !deadline.isAfter(endDate);
+        }).collect(Collectors.toSet());
         return enrichWithChildren(foundTasks);
     }
 
     /**
      * Finds all duplicate tasks.
+     *
      * @return sorted set of duplicate task IDs
      */
     public SortedSet<Long> getDuplicateTasks() {
@@ -335,6 +347,7 @@ public class TodoApp {
 
     /**
      * Gets list by name.
+     *
      * @param name list name
      * @return task list
      * @throws TodoAppException if list not found
@@ -348,6 +361,7 @@ public class TodoApp {
 
     /**
      * Gets all children of task.
+     *
      * @param parentTask parent task
      * @return list of child tasks
      */

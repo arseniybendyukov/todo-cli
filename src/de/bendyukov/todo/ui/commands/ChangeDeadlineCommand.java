@@ -12,7 +12,7 @@ import java.time.LocalDate;
 /**
  * Command to change task deadline.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class ChangeDeadlineCommand extends Command {
@@ -23,7 +23,7 @@ public class ChangeDeadlineCommand extends Command {
      * Creates change deadline command.
      *
      * @param commandHandler command handler
-     * @param app todo app
+     * @param app            todo app
      */
     public ChangeDeadlineCommand(CommandHandler commandHandler, TodoApp app) {
         super(commandHandler, app, COMMAND_NAME);

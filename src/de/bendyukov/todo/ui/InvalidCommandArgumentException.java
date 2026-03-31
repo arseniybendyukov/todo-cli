@@ -3,7 +3,8 @@ package de.bendyukov.todo.ui;
 /**
  * Exception thrown when a command errors during execution.
  *
- * @author Programmieren-Team
+ * @author Arseniy Bendyukov
+ * @version 1.0
  */
 public class InvalidCommandArgumentException extends Exception {
     private static final String PREFIX_ERROR = "ERROR: ";

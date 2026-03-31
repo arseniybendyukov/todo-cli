@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * Represents a tag for taggable entities.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class Tag {

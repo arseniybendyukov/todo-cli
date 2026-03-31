@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * Base class for entities that can be tagged.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public abstract class TaggableEntity {

@@ -3,15 +3,21 @@ package de.bendyukov.todo.logic;
 /**
  * Priority levels for tasks.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public enum TaskPriority {
-    /** High priority. */
+    /**
+     * High priority.
+     */
     HIGH("HI", 1),
-    /** Medium priority. */
+    /**
+     * Medium priority.
+     */
     MEDIUM("MD", 2),
-    /** Low priority. */
+    /**
+     * Low priority.
+     */
     LOW("LO", 3);
 
     private final String code;
@@ -20,24 +26,6 @@ public enum TaskPriority {
     TaskPriority(String code, int priority) {
         this.code = code;
         this.priority = priority;
-    }
-
-    /**
-     * Gets the priority code.
-     *
-     * @return priority code
-     */
-    public String getCode() {
-        return this.code;
-    }
-
-    /**
-     * Gets the priority value.
-     *
-     * @return priority value
-     */
-    public int getPriority() {
-        return priority;
     }
 
     /**
@@ -58,5 +46,23 @@ public enum TaskPriority {
         }
 
         return null;
+    }
+
+    /**
+     * Gets the priority code.
+     *
+     * @return priority code
+     */
+    public String getCode() {
+        return this.code;
+    }
+
+    /**
+     * Gets the priority value.
+     *
+     * @return priority value
+     */
+    public int getPriority() {
+        return priority;
     }
 }

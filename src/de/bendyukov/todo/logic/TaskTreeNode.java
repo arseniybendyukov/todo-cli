@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Tree node representing a task and its children.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class TaskTreeNode {

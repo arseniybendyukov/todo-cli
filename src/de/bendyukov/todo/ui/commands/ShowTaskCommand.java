@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Command to show task and children.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class ShowTaskCommand extends Command {
@@ -23,7 +23,7 @@ public class ShowTaskCommand extends Command {
      * Creates show task command.
      *
      * @param commandHandler command handler
-     * @param app todo app
+     * @param app            todo app
      */
     public ShowTaskCommand(CommandHandler commandHandler, TodoApp app) {
         super(commandHandler, app, COMMAND_NAME);

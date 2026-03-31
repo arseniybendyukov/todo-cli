@@ -12,7 +12,7 @@ import java.util.StringJoiner;
 /**
  * Command to find duplicate tasks.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class DuplicatesCommand extends Command {
@@ -24,7 +24,7 @@ public class DuplicatesCommand extends Command {
      * Creates duplicates command.
      *
      * @param commandHandler command handler
-     * @param app todo app
+     * @param app            todo app
      */
     public DuplicatesCommand(CommandHandler commandHandler, TodoApp app) {
         super(commandHandler, app, COMMAND_NAME);
@@ -41,7 +41,7 @@ public class DuplicatesCommand extends Command {
         requireNoAdditionalArguments(args);
         SortedSet<Long> ids = app.getDuplicateTasks();
         StringJoiner joiner = new StringJoiner(SEPARATOR);
-        for (long id: ids) {
+        for (long id : ids) {
             joiner.add(String.valueOf(id));
         }
         System.out.println(OUTPUT.formatted(ids.size(), joiner));

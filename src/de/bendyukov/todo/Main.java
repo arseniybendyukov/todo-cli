@@ -6,7 +6,7 @@ import de.bendyukov.todo.ui.CommandHandler;
 /**
  * Entry point for the todo application.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public final class Main {

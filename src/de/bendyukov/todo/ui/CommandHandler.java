@@ -2,6 +2,8 @@ package de.bendyukov.todo.ui;
 
 import de.bendyukov.todo.logic.TodoApp;
 import de.bendyukov.todo.ui.commands.AssignCommand;
+import de.bendyukov.todo.ui.commands.BeforeCommand;
+import de.bendyukov.todo.ui.commands.BetweenCommand;
 import de.bendyukov.todo.ui.commands.ChangeDeadlineCommand;
 import de.bendyukov.todo.ui.commands.ChangePriorityCommand;
 import de.bendyukov.todo.ui.commands.CreateListCommand;
@@ -10,28 +12,27 @@ import de.bendyukov.todo.ui.commands.DeleteCommand;
 import de.bendyukov.todo.ui.commands.DuplicatesCommand;
 import de.bendyukov.todo.ui.commands.QuitCommand;
 import de.bendyukov.todo.ui.commands.RestoreCommand;
-import de.bendyukov.todo.ui.commands.BeforeCommand;
-import de.bendyukov.todo.ui.commands.BetweenCommand;
 import de.bendyukov.todo.ui.commands.ShowListTasksCommand;
 import de.bendyukov.todo.ui.commands.ShowOpenTasksCommand;
 import de.bendyukov.todo.ui.commands.ShowSearchTasksCommand;
-import de.bendyukov.todo.ui.commands.TaggedWithCommand;
 import de.bendyukov.todo.ui.commands.ShowTaskCommand;
-import de.bendyukov.todo.ui.commands.UpcomingCommand;
 import de.bendyukov.todo.ui.commands.TagCommand;
+import de.bendyukov.todo.ui.commands.TaggedWithCommand;
 import de.bendyukov.todo.ui.commands.ToggleCommand;
+import de.bendyukov.todo.ui.commands.UpcomingCommand;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Scanner;
-import java.util.Arrays;
 
 
 /**
  * Class implementing a command handler.
  *
- * @author Programmieren-Team
+ * @author Arseniy Bendyukov
+ * @version 1.0
  */
 public class CommandHandler {
     private static final String SEPARATOR = " ";

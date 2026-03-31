@@ -7,14 +7,25 @@ import java.util.Objects;
 /**
  * Class implementing a single command.
  *
- * @author Programmieren-Team
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public abstract class Command {
+    /**
+     * Error message shown when a command recieved more arguments than expected.
+     */
     protected static final String ERROR_TOO_MANY_ARGUMENTS = "Too many arguments";
 
     private final String commandName;
+
+    /**
+     * The command handler instance.
+     */
     protected final CommandHandler commandHandler;
+
+    /**
+     * The app instance.
+     */
     protected final TodoApp app;
 
     /**

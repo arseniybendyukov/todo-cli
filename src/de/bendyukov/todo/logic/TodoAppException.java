@@ -3,7 +3,7 @@ package de.bendyukov.todo.logic;
 /**
  * Exception for todo app errors.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class TodoAppException extends Exception {

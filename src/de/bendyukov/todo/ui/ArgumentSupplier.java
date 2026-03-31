@@ -15,7 +15,8 @@ import java.util.List;
 /**
  * Class supplying arguments to commands.
  *
- * @author Programmieren-Team
+ * @author Arseniy Bendyukov
+ * @version 1.0
  */
 public class ArgumentSupplier {
     private static final String ERROR_TOO_FEW_ARGUMENTS = "Too few arguments";
@@ -30,7 +31,7 @@ public class ArgumentSupplier {
      * Creates a new ArgumentSupplier.
      *
      * @param args String arguments of the command
-     * @param app TodoApp to execute commands with
+     * @param app  TodoApp to execute commands with
      */
     public ArgumentSupplier(String[] args, TodoApp app) {
         this.remainingArgs = new ArrayList<>(Arrays.asList(args));

@@ -13,7 +13,7 @@ import java.time.LocalDate;
 /**
  * Command to create new task.
  *
- * @author udkcf
+ * @author Arseniy Bendyukov
  * @version 1.0
  */
 public class CreateTaskCommand extends Command {
@@ -26,7 +26,7 @@ public class CreateTaskCommand extends Command {
      * Creates create task command.
      *
      * @param commandHandler command handler
-     * @param app todo app
+     * @param app            todo app
      */
     public CreateTaskCommand(CommandHandler commandHandler, TodoApp app) {
         super(commandHandler, app, COMMAND_NAME);
