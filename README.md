@@ -22,8 +22,8 @@ Tasks are the central unit of the application. Every task starts in the **open**
 Each task has:
 - a unique numeric ID
 - a name
-- an optional priority: `HI`, `MD`, or `LO`
-- an optional deadline in `YYYY-MM-DD` format
+- an optional priority
+- an optional deadline
 - zero or more tags
 - zero or more subtasks
 
@@ -52,7 +52,7 @@ A task or list can have multiple tags. Tags may contain letters and digits.
 
 ### Deadlines
 
-A deadline is the date by which a task should be completed. Deadlines are used for date-based commands such as `upcoming`, `before`, and `between`.
+A deadline is the date in `YYYY-MM-DD` format by which a task should be completed. Deadlines are used for date-based commands such as `upcoming`, `before`, and `between`.
 
 ### Display format
 
