@@ -151,12 +151,6 @@ Show all tasks that have at least one duplicate.
 #### `quit`
 Exit the program.
 
-## Notes
-
-- Tasks are displayed hierarchically, with subtasks indented under their parent task.
-- When multiple tasks are shown, they are ordered by priority (`HI` > `MD` > `LO` > no priority) and then by insertion order.
-- Invalid input should result in an error message.
-
 
 ## Example interaction
 
